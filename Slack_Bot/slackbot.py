@@ -112,7 +112,7 @@ def handle_message(event_data):
         send_message = "User <@%s> will be 'Absent'."%message["user"]
         slack_client.api_call("chat.postMessage",channel=channel, text=send_message)
         cur = conn.cursor()
-        cur.execute ("insert into employee(id,name,date) values(95,'"+name1+"','"+date+"')")
+        cur.execute ("insert into employee(id,name,date,state) values(95,'"+name1+"','"+date+"','Absent')")
         cur.execute("select * from employee")
         result = cur.fetchall()
         conn.commit()
